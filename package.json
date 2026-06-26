@@ -1,0 +1,36 @@
+{
+  "name": "csh-desktop",
+  "version": "5.7.0",
+  "description": "Complexe Scolaire Halima - Application de gestion",
+  "main": "main.js",
+  "author": "Boubacar",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "build:all": "electron-builder --win --linux"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.csh.desktop",
+    "productName": "Complexe Scolaire Halima",
+    "files": ["CSH.html", "main.js", "preload.js", "assets/"],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": ["fr"],
+      "language": "1036"
+    }
+  }
+}
