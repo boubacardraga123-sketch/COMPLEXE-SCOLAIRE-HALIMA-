@@ -1,0 +1,33 @@
+name: Build CSH Desktop
+
+on:
+  push:
+    tags:
+      - 'v*'          # Déclenché par un tag ex: v5.7.0
+  workflow_dispatch:  # Déclenchement manuel possible
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Build installeur Windows
+        run: npm run build:win
+
+      - name: Publier sur GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
