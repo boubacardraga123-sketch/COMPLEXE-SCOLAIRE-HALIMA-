@@ -17,7 +17,7 @@
   "build": {
     "appId": "com.csh.desktop",
     "productName": "Complexe Scolaire Halima",
-    "files": ["CSH.html", "main.js", "preload.js", "assets/"],
+    "files": ["index.html", "main.js", "preload.js", "assets/"],
     "publish": null,
     "win": {
       "target": "nsis",
