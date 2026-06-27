@@ -16,7 +16,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile('CSH.html');
+  win.loadFile('index.html');
 
   // Menu minimal
   const menu = Menu.buildFromTemplate([
